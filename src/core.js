@@ -1,6 +1,5 @@
 "use strict";
 
-const colors = require("colors");
 const fs = require("fs");
 const fg = require("fast-glob");
 const { JSDOM } = require("jsdom");
@@ -44,15 +43,7 @@ const Core = {
 	},
 	optionsChanged: function () {
 		if (this.options.showProgressBar) {
-			this.progressbar = new cliprogress.SingleBar(
-				{
-					format:
-						`${colors.yellow("Progress")} |` +
-						colors.yellow("{bar}") +
-						"| {percentage}% || {value}/{total} Chunks || Speed: {speed}",
-				},
-				cliprogress.Presets.shades_classic
-			);
+			
 		}
 	},
 	slash: function (p) {
@@ -173,7 +164,7 @@ const Core = {
 				var process = {
 					setup: function () {
 						if (spb) {
-							console.log(`${colors.green("Fixing: ")} ${self.source}`);
+							
 							self.progressbar.start(self.svgs.length, 0, {
 								speed: "N/A",
 							});
@@ -199,7 +190,6 @@ const Core = {
 						if (spb) {
 							self.progressbar.update(self.svgs.length);
 							self.progressbar.stop();
-							console.log(`${colors.green("Done!")}`);
 						}
 					},
 				};
